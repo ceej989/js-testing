@@ -1,7 +1,7 @@
-describe("Convert Library", function () {
+describe("Test Kata 2 - Karate Chop", function () {
     describe( "distance converter", function () {
-        it("converts inches to centimeters", function () {
-            expect(Convert(12, "inches").to("cm")).toEqual(30.48);
+        it("Find 8 in [-1,0,2,5,8,11]", function () {
+            expect(chop1(8, [-1,0,2,5,8,11]).toBe("Found it!");
         });
         
         it("converts centimeters to yards", function () {
@@ -9,26 +9,4 @@ describe("Convert Library", function () {
         });
     });
 
-    describe( "volume converter", function () {
-        it("converts litres to gallons", function () {
-            expect(Convert(3, "liters").to("gallons")).toEqual(0.79);
-        });
-        
-        it("converts gallons to cups", function () {
-            expect(Convert(2, "gallons").to("cups")).toEqual(32);
-        });
-    });
-    it("throws an error when passed an unknown from-unit", function () {
-        var testFn = function () {
-            Convert(1, "dollar").to("yens");
-        };
-    
-        expect(testFn).toThrow(new Error("unrecognized from-unit"));
-    });
-    it("throws an error when passed an unknown to-unit", function () {
-        var testFn = function () {
-            Convert(1, "cm").to("furlongs");
-        }
-        expect(testFn).toThrow(new Error("unrecognized to-unit"));
-    });
 });
