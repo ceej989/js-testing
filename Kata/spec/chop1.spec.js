@@ -7,7 +7,7 @@ describe("Code Kata 2", function () {
         it("returns -1 for an element not in the array", function () {
             expect(chop1(7, ary)).toEqual(-1);
         });
-        it("returns null when given a null element to search for", function () {
+        it("returns -1 when given a null element to search for", function () {
           expect(chop1(null,ary)).toEqual(-1);
         });
     });
