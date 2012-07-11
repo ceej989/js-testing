@@ -1,12 +1,20 @@
 describe("Code Kata 2", function () {
-    describe( "Find 8 in the Array", function () {
-        it("uses the binary chop algorithm with loops small (5 elements) version", function () {
-            expect(chop1(8, [1,3,5,8,12])).toEqual(3);
+    describe( "when given an easy array: [1,3,5,8,12]", function () {
+      var ary = [1,3,5,8,12];
+        it("correctly finds 8", function () {
+            expect(chop1(8, ary)).toEqual(3);
         });
-        it("uses the binary chop algorithm with loops larger (12 elements) version", function () {
-            expect(chop1(8, [1,3,5,5,7, 8,12,12, 20, 23, 24, 26, 29, 31])).toEqual(4);
+        it("returns null for an element not in the array", function () {
+            expect(chop1(7, ary)).toEqual(null);
+        });
+        it("returns null when given a null element to search for", function () {
+          expect(chop1(null,ary)).toEqual(null);
         });
     });
-
-
+    describe("When given an empty array: []", function () {
+      var ary = [];
+      it("returns null when given a number", function () {
+        expect(chop1(5, ary)).toEqual(null);
+      });
+    });
 });
