@@ -28,6 +28,7 @@ function chop1(i, intarr) {
             mid = Math.round((start + end) / 2);
             console.log("In first half");
             start++;
+            continue;
         }
         if (i > intarr[mid]) {
             start = mid;
