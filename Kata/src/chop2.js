@@ -1,49 +1,29 @@
-//[1,3,5,8,12] num = 8 start = 0 end = 4 mid = 2 
-
-function recChop(s, m, e, num, ia) {
-	var index = -1;
-	console.log("In Recursion: s="+s+" m="+m+" e="+e+" ia[m]="+ia[m]);
-	if(s==e){
-		if (ia[s] == num)
-			return s;
-		else
-			return -1;
+function recChop(start, end, target, intArry) {
+	var mid = Math.floor((start+end)/2);
+	if(start==end) {
+		return intArry[start] == target ? start : -1;
 	}
-	else if(num > ia[m]){
+	else if(target > intArry[mid]) {
 		console.log("In 2nd Half");
-		s=m;
-		m = Math.round((s+e)/2);
-		console.log("s="+s+" m="+m+" e="+e+" ia[m]="+ia[m]+" index="+index);
-		index = recChop(s,m,e,num,ia);
+		start = mid;
+		return recChop(start, end, target, intArry);
+	}
 
-	}
-	else if(num < ia[m]){
+	else if(target < intArry[mid]){
 		console.log("In 1st Half");
-		e=m;
-		m = Math.round((s+e)/2);
-		index = recChop(s,m,e,num,ia);
+		end = mid;
+		return recChop(start,end,target,intArry);
 	}
-	else if(num == ia[m]){
-		console.log("Found "+num+"!");
-		index = m;
-		console.log("s="+s+" m="+m+" e="+e+" ia[m]="+ia[m]+" index="+index);
-		return index;
+
+	else if(target == intArry[mid]){
+		console.log("Found "+target+"!");
+		return mid;
 	}
-		
-	//else
-		//return index;
-	//else{return index;}
-	
 }
 
-function chop2 (i, intarr){
+function chop2 (target, intArry){
 
 	var start = 0;
-	var end = intarr.length-1;
-	var mid = Math.round((start+end)/2);
-	//var result=-1;
-
-	return recChop(start, mid, end, i, intarr);
-	//console.log("result="+result);
-	
+	var end = intArry.length;
+	return recChop(start, end, target, intArry);
 }
