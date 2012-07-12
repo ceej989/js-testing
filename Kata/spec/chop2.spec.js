@@ -4,6 +4,9 @@ describe("Code Kata 2", function () {
         it("correctly finds 8", function () {
             expect(chop2(8, ary)).toEqual(3);
         });
+        it("correctly finds 1", function () {
+          expect(chop2(1, ary)).toEqual(0);
+        });
         it("returns -1 for an element not in the array", function () {
             expect(chop2(7, ary)).toEqual(-1);
         });

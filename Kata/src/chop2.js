@@ -1,17 +1,19 @@
 function recChop(start, end, target, intArry) {
 	var mid = Math.floor((start+end)/2);
-	if(start==end) {
-		return intArry[start] == target ? start : -1;
-	}
-	else if(target > intArry[mid]) {
+	
+	console.log("Args: " + start + ", " + end + ", " + target);
+
+	if( start > end ) { return -1;}
+
+	if(target > intArry[mid]) {
 		console.log("In 2nd Half");
-		start = mid;
+		start = mid + 1;
 		return recChop(start, end, target, intArry);
 	}
 
 	else if(target < intArry[mid]){
 		console.log("In 1st Half");
-		end = mid;
+		end = mid - 1;
 		return recChop(start,end,target,intArry);
 	}
 
@@ -22,8 +24,7 @@ function recChop(start, end, target, intArry) {
 }
 
 function chop2 (target, intArry){
-
 	var start = 0;
-	var end = intArry.length;
+	var end = intArry.length - 1;
 	return recChop(start, end, target, intArry);
 }
