@@ -3,32 +3,32 @@
 function recChop(s, m, e, num, ia) {
 	var index = -1;
 	console.log("In Recursion: s="+s+" m="+m+" e="+e+" ia[m]="+ia[m]);
-		if(s==e){
-			if (ia[s] == num)
-				return s;
-			else
-				return -1;
-		}
-		else if(num > ia[m]){
-			console.log("In 2nd Half");
-			s=m;
-			m = Math.round((s+e)/2);
-			console.log("s="+s+" m="+m+" e="+e+" ia[m]="+ia[m]+" index="+index);
-			index = recChop(s,m,e,num,ia);
+	if(s==e){
+		if (ia[s] == num)
+			return s;
+		else
+			return -1;
+	}
+	else if(num > ia[m]){
+		console.log("In 2nd Half");
+		s=m;
+		m = Math.round((s+e)/2);
+		console.log("s="+s+" m="+m+" e="+e+" ia[m]="+ia[m]+" index="+index);
+		index = recChop(s,m,e,num,ia);
 
-		}
-		else if(num < ia[m]){
-			console.log("In 1st Half");
-			e=m;
-			m = Math.round((s+e)/2);
-			index = recChop(s,m,e,num,ia);
-		}
-		else if(num == ia[m]){
-			console.log("Found "+num+"!");
-			index = m;
-			console.log("s="+s+" m="+m+" e="+e+" ia[m]="+ia[m]+" index="+index);
-			return index;
-		}
+	}
+	else if(num < ia[m]){
+		console.log("In 1st Half");
+		e=m;
+		m = Math.round((s+e)/2);
+		index = recChop(s,m,e,num,ia);
+	}
+	else if(num == ia[m]){
+		console.log("Found "+num+"!");
+		index = m;
+		console.log("s="+s+" m="+m+" e="+e+" ia[m]="+ia[m]+" index="+index);
+		return index;
+	}
 		
 	//else
 		//return index;
